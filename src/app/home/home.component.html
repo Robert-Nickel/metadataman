@@ -1,0 +1,27 @@
+<br><br>
+<div class="container">
+  <form #newEntry="ngForm" (ngSubmit)="save(newEntry)">
+    <table class="table" style="text-align: left">
+      <tr>
+        <th>Track </th>
+        <th>Titel</th>
+        <th>Interpret</th>
+      </tr>
+      <tr *ngFor="let entry of entries; index as i">
+        <td>{{i+1}}</td>
+        <td>{{entry.title}}</td>
+        <td>{{entry.artist}}</td>
+      </tr>
+      <tr class="form-group">
+        <td>{{entries.length+1}}</td>
+        <td><input required #title name="title" type="text" placeholder="Titel" ngModel></td>
+        <td><input required name="artist" class="form-control" type="text" placeholder="Interpret" ngModel></td>
+      </tr>
+      <input type="submit" value="Speichern">
+    </table>
+  </form>
+  <div>
+    <input #album type="text" placeholder="Album" [(ngModel)]="data.album">
+    <input style="float: right" type="button" value="Exportieren" (click)="export()">
+  </div>
+</div>
