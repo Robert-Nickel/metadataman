@@ -6,7 +6,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
-import { SharedModule } from './shared/shared.module';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -30,7 +29,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     FormsModule,
     HttpClientModule,
     CoreModule,
-    SharedModule,
     HomeModule,
     AppRoutingModule,
     TranslateModule.forRoot({
