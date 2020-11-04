@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
     var toExport = ""
     this.entries.forEach(entry => {
       toExport = toExport
-        + (entry.number < 10 ? "0" : entry.number)
+        + (entry.number < 10 ? "0" : "")
         + entry.number.toString() + " / " + entry.title + " / "
         + entry.artist + " / "
         + this.data.album + " / " + today.toString() + "\n"

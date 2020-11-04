@@ -1,25 +1,12 @@
 {
-  "name": "angular-electron",
-  "version": "8.0.5",
-  "description": "Angular 10 with Electron (Typescript + SASS + Hot Reload)",
-  "homepage": "https://github.com/maximegris/angular-electron",
+  "name": "metadataman",
+  "version": "1.0.0",
+  "description": "Generate metadata for mp3",
+  "homepage": "https://robertnickel.online",
   "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
+    "name": "Robert Nickel",
+    "email": "robert.nickel@aikq.de"
   },
-  "keywords": [
-    "angular",
-    "angular 10",
-    "electron",
-    "nodejs",
-    "typescript",
-    "spectron",
-    "eslint",
-    "sass",
-    "windows",
-    "mac",
-    "linux"
-  ],
   "main": "main.js",
   "private": true,
   "scripts": {
