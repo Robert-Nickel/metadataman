@@ -14,8 +14,8 @@
       </tr>
       <tr class="form-group">
         <td>{{entries.length+1}}</td>
-        <td><input required #title name="title" type="text" placeholder="Titel" ngModel></td>
-        <td><input required name="artist" class="form-control" type="text" placeholder="Interpret" ngModel></td>
+        <td><input required minlength="1" #title name="title" type="text" placeholder="Titel" ngModel></td>
+        <td><input required minlength="1" name="artist" class="form-control" type="text" placeholder="Interpret" ngModel></td>
       </tr>
       <input type="submit" value="Speichern">
     </table>

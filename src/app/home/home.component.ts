@@ -30,23 +30,33 @@ export class HomeComponent implements OnInit {
   }
 
   public save(newEntryForm) {
-    let newEntry = newEntryForm.value
-    this.entries.push(new Entry(this.entries.length + 1, newEntry.title, newEntry.artist))
-    newEntryForm.reset()
-    this.title.nativeElement.focus()
+    if(newEntryForm.valid) {
+      let newEntry = newEntryForm.value
+      this.entries.push(new Entry(this.entries.length + 1, newEntry.title, newEntry.artist))
+      newEntryForm.reset()
+      this.title.nativeElement.focus()
+    }
   }
 
   public export() {
     let dateFormat = require('dateformat');
-    let today = dateFormat(new Date(), "yyyy-mm-dd");
+    let today = new Date()
+    let todayFormat = dateFormat(today, "yyyy-mm-dd");
 
     var toExport = ""
+
+    //%track% / %title% / %artist% / %album-artist%/ %year% / %Datum% / &genre% /
+
     this.entries.forEach(entry => {
       toExport = toExport
-        + (entry.number < 10 ? "0" : "")
-        + entry.number.toString() + " / " + entry.title + " / "
+        + (entry.number < 10 ? "0" : "") + entry.number.toString() + " / "
+        + entry.title + " / "
         + entry.artist + " / "
-        + this.data.album + " / " + today.toString() + "\n"
+        + "Mennoniten-Brüdergemeinde Warendorf / "
+        + today.getFullYear() + " / "
+        + this.data.album + " / "
+        + todayFormat.toString() + " / " 
+        + "Christlich /\n"
     }
     )
     this.remote.dialog.showSaveDialog({
