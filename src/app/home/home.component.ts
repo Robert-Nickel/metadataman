@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit {
         + today.getFullYear() + " / "
         + this.data.album + " / "
         + todayFormat.toString() + " / " 
-        + "Christlich /\n"
+        + "Christlich\n"
     }
     )
     this.remote.dialog.showSaveDialog({
