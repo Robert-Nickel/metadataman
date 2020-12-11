@@ -1,5 +1,5 @@
 {
-  "productName": "angular-electron",
+  "productName": "metadataman",
   "directories": {
     "output": "release/"
   },
@@ -18,23 +18,5 @@
         "!karma.conf.js",
         "!tsconfig.json",
         "!tslint.json"
-    ],
-  "win": {
-    "icon": "dist/assets/icons",
-    "target": [
-      "portable"
     ]
-  },
-  "mac": {
-    "icon": "dist/assets/icons",
-    "target": [
-      "dmg"
-    ]
-  },
-  "linux": {
-    "icon": "dist/assets/icons",
-    "target": [
-      "AppImage"
-    ]
-  }
 }
