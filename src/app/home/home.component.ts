@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
 
   constructor(private router: Router) {
     if (!!(window && window.process && window.process.type)) {
-      console.log("It is Electron.. i guess.")
       this.fs = window.require('fs');
       this.remote = window.require('electron').remote;
       this.path = window.require('path')
@@ -76,6 +75,11 @@ export class HomeComponent implements OnInit {
           });
       }
     })
+  }
+
+  public delete(index: number) {
+    console.log("Please delete entry with index: " + index)
+    this.entries.splice(index, 1)
   }
 }
 

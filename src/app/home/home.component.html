@@ -6,16 +6,20 @@
         <th>Track </th>
         <th>Titel</th>
         <th>Interpret</th>
+        <th></th>
       </tr>
       <tr *ngFor="let entry of entries; index as i">
         <td>{{i+1}}</td>
         <td>{{entry.title}}</td>
         <td>{{entry.artist}}</td>
+        <td><input type="button" value="Löschen" (click)="delete(i)"></td>
       </tr>
       <tr class="form-group">
         <td>{{entries.length+1}}</td>
         <td><input required minlength="1" #title name="title" type="text" placeholder="Titel" ngModel></td>
-        <td><input required minlength="1" name="artist" class="form-control" type="text" placeholder="Interpret" ngModel></td>
+        <td><input required minlength="1" name="artist" class="form-control" type="text" placeholder="Interpret"
+            ngModel></td>
+        <td></td>
       </tr>
       <input type="submit" value="Speichern">
     </table>
