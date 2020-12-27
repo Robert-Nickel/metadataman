@@ -12,20 +12,23 @@
         <td>{{i+1}}</td>
         <td>{{entry.title}}</td>
         <td>{{entry.artist}}</td>
-        <td><input type="button" value="Löschen" (click)="delete(i)"></td>
+        <td><input class="button" type="button" value="Löschen" (click)="delete(i)"></td>
       </tr>
       <tr class="form-group">
         <td>{{entries.length+1}}</td>
         <td><input required minlength="1" #title name="title" type="text" placeholder="Titel" ngModel></td>
         <td><input required minlength="1" name="artist" class="form-control" type="text" placeholder="Interpret"
             ngModel></td>
-        <td></td>
+        <td><input class="button" type="submit" value="Speichern">
+        </td>
       </tr>
-      <input type="submit" value="Speichern">
+      <br><br>
+      <tr style="border-top:2px solid black">
+        <td></td>
+        <td></td>
+        <td><input #album type="text" placeholder="Album" [(ngModel)]="data.album"></td>
+        <td><input class="button" type="button" value="Exportieren" (click)="export()"></td>
+      </tr>
     </table>
   </form>
-  <div>
-    <input #album type="text" placeholder="Album" [(ngModel)]="data.album">
-    <input style="float: right" type="button" value="Exportieren" (click)="export()">
-  </div>
 </div>
