@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
   }
 
   public save(newEntryForm) {
-    if(newEntryForm.valid) {
+    if (newEntryForm.valid) {
       let newEntry = newEntryForm.value
       this.entries.push(new Entry(this.entries.length + 1, newEntry.title, newEntry.artist))
       newEntryForm.reset()
@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
         + "Mennoniten-Brüdergemeinde Warendorf / "
         + today.getFullYear() + " / "
         + this.data.album + " / "
-        + todayFormat.toString() + " / " 
+        + todayFormat.toString() + " / "
         + "Christlich\n"
     }
     )
@@ -71,7 +71,11 @@ export class HomeComponent implements OnInit {
       if (!file.canceled) {
         this.fs.writeFile(file.filePath.toString(),
           toExport, function (err) {
-            if (err) throw err;
+            if (err) {
+              throw err;
+            } else {
+              alert("Das hat funktioniert.\nDie Datei wurde unter " + file.filePath.toString() + " gespeichert.");
+            };
           });
       }
     })
