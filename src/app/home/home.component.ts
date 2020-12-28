@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   @ViewChild('title') title: ElementRef;
 
   entries = []
-  data = new Data('')
+  data = new Data()
   thisWouldBeExported = ""
   fs: any
   remote: any
@@ -81,9 +81,33 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  public edit(pIndex: number) {
+    this.entries.map((entry, index) => {
+      if (index == pIndex) {
+        entry.editMode = true
+        this.data.title = entry.title
+        this.data.artist = entry.artist
+      }
+    });
+  }
+
+  public saveChange(pIndex: number) {
+    this.entries.map((entry, index) => {
+      if (index == pIndex) {
+        entry.title = this.data.title
+        entry.artist = this.data.artist
+        entry.editMode = false
+      }
+    });
+  }
+
   public delete(index: number) {
     console.log("Please delete entry with index: " + index)
     this.entries.splice(index, 1)
+  }
+
+  public isInEditMode() {
+    this.entries.some(entry => entry.editMode)
   }
 }
 
@@ -91,18 +115,18 @@ class Entry {
   number: number;
   title: string;
   artist: string;
+  editMode: boolean;
 
   constructor(number: number, title: string, artist: string) {
     this.number = number;
     this.title = title;
     this.artist = artist;
+    this.editMode = false;
   }
 }
 
 class Data {
   album: string;
-
-  constructor(album: string) {
-    this.album = album;
-  }
+  title: string;
+  artist: string;
 }

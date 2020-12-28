@@ -10,9 +10,17 @@
       </tr>
       <tr *ngFor="let entry of entries; index as i">
         <td>{{i+1}}</td>
-        <td>{{entry.title}}</td>
-        <td>{{entry.artist}}</td>
-        <td><input class="button" type="button" value="Löschen" (click)="delete(i)"></td>
+        <td *ngIf="!entry.editMode">{{entry.title}}</td>
+        <td *ngIf="entry.editMode">
+          <input name="changeTitle" minlength="1" class="form-control" type="text" [(ngModel)]="data.title">
+        </td>
+        <td *ngIf="!entry.editMode">{{entry.artist}}</td>
+        <td *ngIf="entry.editMode">
+          <input name="changeArtist" minlength="1" class="form-control" type="text" [(ngModel)]="data.artist">
+        </td>
+        <td><input *ngIf="!entry.editMode" type="button" value="Bearbeiten" (click)="edit(i)"></td>
+        <td><input *ngIf="entry.editMode" type="button" value="Speichern" (click)="saveChange(i)"></td>
+        <td><input type="button" class="button" value="Löschen" (click)="delete(i)"></td>
       </tr>
       <tr class="form-group">
         <td>{{entries.length+1}}</td>
@@ -26,7 +34,7 @@
       <tr style="border-top:2px solid black">
         <td></td>
         <td></td>
-        <td><input #album type="text" placeholder="Album" [(ngModel)]="data.album"></td>
+        <td><input name="album" #album type="text" placeholder="Album" [(ngModel)]="data.album"></td>
         <td><input class="button" type="button" value="Exportieren" (click)="export()"></td>
       </tr>
     </table>
