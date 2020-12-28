@@ -118,6 +118,10 @@ table {
     border-top: $table-cell-border-top;
 }
 
+mat-icon {
+    cursor: pointer;
+}
+
 /*  Sets table header font-weight to bold.
  *  Aligns table header text to the bottom of each cell. */
 .table th,
