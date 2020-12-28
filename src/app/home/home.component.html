@@ -11,7 +11,7 @@
         <th></th>
       </tr>
       <tr *ngFor="let entry of entries; index as i">
-        <td>{{i+1}}</td>
+        <td>{{ getTrackNumber(i+1) }}</td>
         <td *ngIf="!entry.editMode">{{entry.title}}</td>
         <td *ngIf="entry.editMode">
           <input name="changeTitle" minlength="1" class="form-control" type="text" [(ngModel)]="data.title">
@@ -23,10 +23,10 @@
        
         <td><input *ngIf="entry.editMode" class="button" type="button" value="Speichern" (click)="saveChange(i)"></td>
         <td><mat-icon *ngIf="!entry.editMode" (click)="edit(i)">edit</mat-icon></td>
-        <td><mat-icon (click)="delete(i)">delete</mat-icon></td>
+        <td><mat-icon (click)="delete(i)">remove_circle</mat-icon></td>
       </tr>
       <tr class="form-group">
-        <td>{{entries.length+1}}</td>
+        <td>{{ getTrackNumber(entries.length+1) }}</td>
         <td><input required minlength="1" #title name="title" type="text" placeholder="Titel" ngModel></td>
         <td><input required minlength="1" name="artist" class="form-control" type="text" placeholder="Interpret"
             ngModel></td>
@@ -34,7 +34,7 @@
         <td style="padding-left: 43px"></td>
         <td style="padding-left: 43px"></td>
       </tr>
-      <br><br>
+      <br>
       <tr style="border-top:2px solid black">
         <td></td>
         <td></td>

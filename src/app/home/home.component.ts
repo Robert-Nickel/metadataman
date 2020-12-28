@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
 
     this.entries.forEach(entry => {
       toExport = toExport
-        + (entry.number < 10 ? "0" : "") + entry.number.toString() + " / "
+        + this.getTrackNumber(entry.number) + " / "
         + entry.title + " / "
         + entry.artist + " / "
         + "Mennoniten-Brüdergemeinde Warendorf / "
@@ -108,6 +108,10 @@ export class HomeComponent implements OnInit {
 
   public isInEditMode() {
     this.entries.some(entry => entry.editMode)
+  }
+
+  public getTrackNumber(number: number) {
+    return (number < 10 ? "0" : "") + number.toString()
   }
 }
 
