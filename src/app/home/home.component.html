@@ -7,6 +7,8 @@
         <th>Titel</th>
         <th>Interpret</th>
         <th></th>
+        <th></th>
+        <th></th>
       </tr>
       <tr *ngFor="let entry of entries; index as i">
         <td>{{i+1}}</td>
@@ -18,17 +20,19 @@
         <td *ngIf="entry.editMode">
           <input name="changeArtist" minlength="1" class="form-control" type="text" [(ngModel)]="data.artist">
         </td>
-        <td><input *ngIf="!entry.editMode" type="button" value="Bearbeiten" (click)="edit(i)"></td>
-        <td><input *ngIf="entry.editMode" type="button" value="Speichern" (click)="saveChange(i)"></td>
-        <td><input type="button" class="button" value="Löschen" (click)="delete(i)"></td>
+       
+        <td><input *ngIf="entry.editMode" class="button" type="button" value="Speichern" (click)="saveChange(i)"></td>
+        <td><mat-icon *ngIf="!entry.editMode" (click)="edit(i)">edit</mat-icon></td>
+        <td><mat-icon (click)="delete(i)">delete</mat-icon></td>
       </tr>
       <tr class="form-group">
         <td>{{entries.length+1}}</td>
         <td><input required minlength="1" #title name="title" type="text" placeholder="Titel" ngModel></td>
         <td><input required minlength="1" name="artist" class="form-control" type="text" placeholder="Interpret"
             ngModel></td>
-        <td><input class="button" type="submit" value="Speichern">
-        </td>
+        <td><input class="button" type="submit" value="Speichern"></td>
+        <td style="padding-left: 43px"></td>
+        <td style="padding-left: 43px"></td>
       </tr>
       <br><br>
       <tr style="border-top:2px solid black">
@@ -36,6 +40,8 @@
         <td></td>
         <td><input name="album" #album type="text" placeholder="Album" [(ngModel)]="data.album"></td>
         <td><input class="button" type="button" value="Exportieren" (click)="export()"></td>
+        <td></td>
+        <td></td>
       </tr>
     </table>
   </form>
