@@ -73,9 +73,7 @@ export class HomeComponent implements OnInit {
           toExport, function (err) {
             if (err) {
               throw err;
-            } else {
-              alert("Das hat funktioniert.\nDie Datei wurde unter " + file.filePath.toString() + " gespeichert.");
-            };
+            }
           });
       }
     })
