@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -32,7 +33,9 @@ export class HomeComponent implements OnInit {
     if (newEntryForm.valid) {
       let newEntry = newEntryForm.value
       this.entries.push(new Entry(this.entries.length + 1, newEntry.title, newEntry.artist))
-      newEntryForm.reset()
+      newEntryForm.value.title  = ''
+      newEntryForm.value.artist  = ''
+      newEntryForm.resetForm(newEntryForm.value)
       this.title.nativeElement.focus()
     }
   }
